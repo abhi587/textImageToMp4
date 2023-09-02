@@ -69,9 +69,9 @@ let textToMp4 = async function (req, res) {
     }
 
     let result = await axios.post(apiUrl, inputData, { headers });
-    // console.log(result.data.id)
-
-    res.status(200).send({ status: true, msg: result.data.id });
+    let key = result.data.id;
+  
+    res.status(200).send({status:true, msg: key})
   } catch (err) {
     res.status(500).send({ err: err.message });
   }
